@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill7 | Login</title>
+    <link rel="shortcut icon" href="/frontend/assets/logo.svg" type="image/x-icon">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="/frontend/styles/main.css">
+    <link rel="stylesheet" href="/frontend/styles/sty-login.css">
+
+    <!-- Script -->
+    <script type="module" src="/frontend/scripts/main.js" defer></script>
+
+    <!-- RemixIcon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container-login">
+        <div class="box-login block-21">
+            <div class="header-login">
+                <img src="/frontend/assets/logotipo.svg" alt="Logotipo escrito 'skill7'">
+                <p>Digite seu usuário e senha</p>
+            </div>
+            <form class="form-login" action="">
+                <div class="input block-26">
+                    <label for="usuario">
+                        <i class="ri-user-fill"></i>
+                    </label>
+                    <input id="usuario" type="text" placeholder="Usuário" autocomplete="off">
+                </div>
+                <div class="input block-26">
+                    <label id="btn-toggle-password" for="senha">
+                        <i id="icon-senha" class="ri-eye-off-fill"></i>
+                    </label>
+                    <input id="senha" type="password" placeholder="Senha" autocomplete="off">
+                </div>
+                <button class="block-26" type="submit">Acessar</button>
+            </form>
+        </div>
+    </div>
+<script>
+    const btnTogglePassword = document.getElementById('btn-toggle-password')
+    const iconPassword = document.getElementById('icon-senha')
+    const password = document.getElementById('senha')
+    let = active = true
+
+    btnTogglePassword.addEventListener("click", () => {
+        active = !active
+        if (active) {
+            iconPassword.classList.replace('ri-eye-fill', 'ri-eye-off-fill')
+            password.type = "password"
+        } else {
+            iconPassword.classList.replace('ri-eye-off-fill', 'ri-eye-fill')
+            password.type = "text"
+        }
+        console.log(active)
+    })
+</script>
+</body>
+</html>

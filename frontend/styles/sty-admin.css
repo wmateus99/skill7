@@ -1,0 +1,205 @@
+:root {
+    --color-main: #1750eb;
+
+    --color-ff: #ffffff;
+    --color-21: #212121;
+    --color-26: #262626;
+    --color-45: #454545;
+    --color-55: #555555;
+
+    --pixel-40: 40px;
+}
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+/* CABEÇALHO */
+.header {
+    margin-bottom: 24px;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.header p {
+    font-size: 14px;
+    color: var(--color-55);
+}
+
+/* LAYOUT PRINCIPAL (FORM + LISTA) */
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+}
+
+/* SEÇÕES (FORM E LISTA) */
+.form-section,
+.list-section {
+    background-color: var(--color-26);
+    border: 1px solid #303030;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.form-section h2,
+.list-section h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+/* FORMULÁRIO */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: var(--color-ff);
+    background-color: var(--color-21);
+    border: 1px solid var(--color-45);
+    border-radius: 4px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-main);
+}
+
+/* BOTÃO */
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-ff);
+    background-color: var(--color-main);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #1340c0;
+}
+
+/* LISTA DE ATIVIDADES */
+#listaAtividades {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* CARD DA ATIVIDADE */
+.atividade-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    background-color: #1e1e1e;
+    border: 1px solid #303030;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* INFO DA ATIVIDADE (TÍTULO, MÓDULO, ARQUIVO) */
+.atividade-info h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.atividade-info p {
+    margin-bottom: 3px;
+    color: var(--color-55);
+}
+
+.atividade-info p strong {
+    color: var(--color-ff);
+    font-weight: 500;
+}
+
+/* AÇÕES (BOTÕES) */
+.atividade-actions {
+    gap: 6px;
+    display: flex;
+    align-items: center;
+}
+
+/* BOTÕES ESPECÍFICOS */
+.btn-download {
+    height: 40px;
+    background-color: #0f766e;
+}
+
+.btn-download:hover {
+    background-color: #115e57;
+}
+
+.btn-danger {
+    height: 40px;
+    background-color: #b91c1c;
+}
+
+.btn-danger:hover {
+    background-color: #991b1b;
+}
+
+.btn-edit {
+    height: 40px;
+    background-color: #4b5563;
+}
+
+.btn-edit:hover {
+    background-color: #374151;
+}
+
+/* RESPONSIVO: EMPILHA AS AÇÕES EM BAIXO NO MOBILE */
+@media (max-width: 600px) {
+    .atividade-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .atividade-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .atividade-actions .btn {
+        width: auto;
+        flex: 1;
+    }
+}
+
+
+/* MENSAGEM DE CARREGANDO */
+.loading {
+    padding: 16px;
+    text-align: center;
+    color: var(--color-55);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}

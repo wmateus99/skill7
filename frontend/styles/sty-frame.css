@@ -1,0 +1,16 @@
+body {
+    position: relative;
+}
+
+.control {
+    top: 20px;
+    left: 20px;
+    position: absolute;
+}
+
+.control button {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    color: #000000;
+}

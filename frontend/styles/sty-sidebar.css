@@ -1,0 +1,126 @@
+.sidebar {
+    width: 250px;
+    display: grid;
+    height: 100vh;
+    padding: 1rem;
+    overflow: hidden;
+    transition: .1s ease-in-out;
+    grid-template-columns: 1fr;
+    background: var(--color-21);
+    grid-template-rows: .2fr 1fr .2fr;
+    border-right: 1px solid var(--color-45);
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidebar-header a {
+    display: flex;
+    align-items: center;
+}
+.sidebar-header a img {
+    opacity: 1;
+    width: 8rem;
+    transition: .1s ease-out;
+}
+.sidebar-header button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    background: transparent;
+}
+/*  */
+
+/* Sidebar Body */
+.sidebar-body {
+    border-top: 1px solid var(--color-45);
+    border-bottom: 1px solid var(--color-45);
+}
+.sidebar-body .nav-group {
+    gap: .5rem;
+    display: flex;
+    padding: 1rem 0rem;
+    flex-direction: column;
+}
+.sidebar-body .nav-group h3 {
+    font-size: 1.1rem;
+}
+.sidebar-body .nav-group a {
+    font-size: .98rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-45);
+    transition: .2s ease-in-out;
+    /* background: var(--color-45); */
+    padding: .5rem .5rem .5rem 1.2rem;
+}
+.sidebar-body .nav-group a:hover {
+    background: var(--color-45);
+    padding: .5rem .5rem .5rem 1.4rem;
+}
+.sidebar-body .nav-group a.active {
+    background: var(--color-main);
+    border-color: var(--color-ff);
+    padding: .5rem .5rem .5rem 1.4rem;
+}
+
+/* Para outras verções com botões */
+.sidebar-body .nav-group button {
+    font-size: .98rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: .2s ease-in-out;
+    background: var(--color-26);
+    border: 1px solid var(--color-45);
+    padding: .5rem .5rem .5rem .5rem;
+}
+.sidebar-body .nav-group button:hover {
+    background: var(--color-45);
+    padding: .5rem .5rem .5rem 1.4rem;
+}
+.sidebar-body .nav-group button.active {
+    background: var(--color-45);
+}
+/*  */
+
+.sidebar-footer {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+.sidebar-footer button {
+    width: 100%;
+    padding: .5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    background: var(--color-main);
+    border: 1px solid var(--color-ff);
+}
+
+/* Active */
+
+.sidebar.sidebar-toggle {
+    width: 50px;
+    padding: 0rem;
+}
+.sidebar.sidebar-toggle .sidebar-header {
+    justify-content: center;
+}
+.sidebar.sidebar-toggle .sidebar-header a img {
+    opacity: 0;
+    width: 0rem;
+}
+.sidebar.sidebar-toggle .sidebar-footer button span {
+    display: none;
+}
+.sidebar.sidebar-toggle .sidebar-body .nav-group {
+    display: none;
+}
