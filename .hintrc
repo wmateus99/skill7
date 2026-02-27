@@ -3,40 +3,13 @@
     "development"
   ],
   "hints": {
+    "disown-opener": "off",
     "axe/name-role-value": [
       "default",
       {
         "button-name": "off"
       }
     ],
-    "button-type": "off",
-    "axe/forms": [
-      "default",
-      {
-        "select-name": "off",
-        "label": "off"
-      }
-    ],
-    "disown-opener": "off",
-    "compat-api/css": [
-      "default",
-      {
-        "ignore": [
-          "user-select"
-        ]
-      }
-    ],
-    "axe/text-alternatives": [
-      "default",
-      {
-        "document-title": "off"
-      }
-    ],
-    "axe/language": [
-      "default",
-      {
-        "html-has-lang": "off"
-      }
-    ]
+    "button-type": "off"
   }
 }

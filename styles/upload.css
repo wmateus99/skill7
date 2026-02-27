@@ -1,0 +1,25 @@
+.form {
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    max-width: 450px;
+    flex-direction: column;
+    border: 1px solid var(--color-45);
+}
+
+.form div {
+    display: flex;
+    flex-direction: column;
+}
+.form div input {
+    color: #000000;
+}
+.form div select option {
+    color: #000000;
+}
+.form button {
+    color: #000000;
+}

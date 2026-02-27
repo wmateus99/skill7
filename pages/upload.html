@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill7 | Portal de Habilidades</title>
+    <link rel="shortcut icon" href="/assets/logo.svg" type="image/x-icon">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/upload.css">
+
+    <!-- RemixIcon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="form">
+            <h1>Enviar PDF</h1>
+        
+            <div>
+                <label for="title">Título:</label>
+                <input type="text" id="title" />
+            </div>
+            <div>
+                <label for="modulo">Módulo:</label>
+                <select id="modulo">
+                    <option value="">Selecione um módulo</option>
+                    <option value="windows10">Windows 10</option>
+                    <option value="windows11">Windows 11</option>
+                </select>
+            </div>
+            <div>
+                <label for="pdf">PDF:</label>
+                <input type="file" id="pdf" accept="application/pdf" />
+            </div>
+        
+            <button id="uploadBtn">Enviar</button>
+        </div>
+    
+        <h2>Lista de PDFs</h2>
+        <ul id="pdfList"></ul>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+        const SUPABASE_URL = 'https://guybjcnaidgnicimkkgv.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_lTBjKmv9zUDaM-dSZitXfw_7qjqGA0o';
+
+        const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        const titleInput = document.getElementById('title');
+        const moduloSelect = document.getElementById('modulo');
+        const pdfInput = document.getElementById('pdf');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const pdfList = document.getElementById('pdfList');
+
+        uploadBtn.addEventListener('click', handleUpload);
+        document.addEventListener('DOMContentLoaded', loadDocuments);
+
+        async function handleUpload() {
+            const title = titleInput.value.trim();
+            const modulo = moduloSelect.value;
+            const file = pdfInput.files[0];
+
+            if (!title || !modulo || !file) {
+                alert('Preencha o título, selecione um módulo e escolha um PDF.');
+                return;
+            }
+
+            const safeTitle = title
+                .toLowerCase()
+                .replace(/\s+/g, '-')
+                .replace(/[^a-z0-9\-]/g, '');
+
+            const filePath = `pdfs/${Date.now()}-${safeTitle}.pdf`;
+
+            const { data: uploadData, error: uploadError } = await supabase.storage
+                .from('pdfs')
+                .upload(filePath, file);
+
+            if (uploadError) {
+                console.error(uploadError);
+                alert('Erro ao enviar PDF');
+                return;
+            }
+
+            const { data: publicData } = supabase.storage
+                .from('pdfs')
+                .getPublicUrl(filePath);
+
+            const publicUrl = publicData.publicUrl;
+
+            const { data: insertData, error: insertError } = await supabase
+                .from('documents')
+                .insert([
+                    {
+                        title: title,
+                        modulo: modulo,
+                        file_path: filePath
+                    }
+                ])
+                .select();
+
+            if (insertError) {
+                console.error(insertError);
+                alert('Erro ao salvar dados no banco');
+                return;
+            }
+
+            const newDoc = insertData[0];
+            addPdfToList(newDoc.title, modulo, publicUrl);
+
+            titleInput.value = '';
+            moduloSelect.value = '';
+            pdfInput.value = '';
+        }
+
+        async function loadDocuments() {
+            const { data, error } = await supabase
+                .from('documents')
+                .select('*');
+
+            if (error) {
+                console.error(error);
+                alert('Erro ao carregar documentos');
+                return;
+            }
+
+            pdfList.innerHTML = '';
+
+            for (const doc of data) {
+                const { data: publicData } = supabase.storage
+                    .from('pdfs')
+                    .getPublicUrl(doc.file_path);
+
+                const url = publicData.publicUrl;
+
+                addPdfToList(doc.title, doc.modulo, url);
+            }
+        }
+
+        function addPdfToList(title, modulo, url) {
+            const li = document.createElement('li');
+            const link = document.createElement('a');
+            const moduloSpan = document.createElement('span');
+
+            link.href = url;
+            link.target = '_blank';
+            link.textContent = title;
+
+            moduloSpan.textContent = ` (módulo: ${modulo})`;
+
+            li.appendChild(link);
+            li.appendChild(moduloSpan);
+            pdfList.appendChild(li);
+        }
+    </script>
+</body>
+</html>
