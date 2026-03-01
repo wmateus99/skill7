@@ -22,19 +22,31 @@
 
     <div class="container">
         <div class="form">
-            <h1>Enviar PDF</h1>
-        
-            <div>
-                <label for="title">Título:</label>
-                <input type="text" id="title" />
-            </div>
-            <div>
-                <label for="modulo">Módulo:</label>
-                <select id="modulo">
-                    <option value="">Selecione um módulo</option>
-                    <option value="windows10">Windows 10</option>
-                    <option value="windows11">Windows 11</option>
-                </select>
+            <h1>Adicionar Atividade</h1>
+            <div class="box-select">
+                <div>
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" />
+                </div>
+                <div>
+                    <label for="modulo">Módulo:</label>
+                    <select id="modulo">
+                        <option value="">Selecione um módulo</option>
+                        <option value="introducao-informatica">Introdução a Informática</option>
+                        <option value="windows10">Windows 10</option>
+                        <option value="windows11">Windows 11</option>
+                        <option value="internet">Internet</option>
+                        <option value="ambientes-digitais">Ambientes Digitais</option>
+                        <option value="word">Word</option>
+                        <option value="excel-essencial">Excel Essencial</option>
+                        <option value="vitrinismo">Vitrinismo</option>
+                        <option value="excel-avancado">Excel Avançado</option>
+                        <option value="powerpoint">PowerPoint</option>
+                        <option value="powerbi">Power BI</option>
+                        <option value="photoshop">Photoshop</option>
+                        <option value="coreldraw">CorelDraw</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <label for="pdf">PDF:</label>
@@ -44,8 +56,8 @@
             <button id="uploadBtn">Enviar</button>
         </div>
     
-        <h2>Lista de PDFs</h2>
-        <ul id="pdfList"></ul>
+        <h2 style="display: none;">Lista de PDFs</h2>
+        <ul style="display: none;" id="pdfList"></ul>
     </div>
 
     <script type="module">

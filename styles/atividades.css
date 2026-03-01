@@ -18,6 +18,7 @@
     gap: 1rem;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .container .filter form .label-option {
