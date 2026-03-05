@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Projeto - Mateus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0c;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent-color: #4f46e5;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --radius: 4px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 2rem;
+            /* Fundo animado sutil */
+            background: radial-gradient(circle at 0% 0%, #1e1b4b 0%, transparent 25%),
+                        radial-gradient(circle at 100% 100%, #1e1b4b 0%, transparent 25%),
+                        #0a0a0c;
+        }
+
+        /* Container Principal com animação de entrada */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 3rem;
+            animation: fadeIn 1s ease-out;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #fff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+        }
+
+        strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Grid de Objetivos */
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .goal-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .goal-card:hover {
+            background: rgba(79, 70, 229, 0.1);
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .goal-card span {
+            display: block;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Seção de Conteúdo */
+        .content-section {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-dim);
+        }
+
+        /* Links e Versões */
+        .versions-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .version-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .version-link {
+            text-decoration: none;
+            color: var(--text-main);
+            background: var(--border-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .version-link:hover {
+            background: var(--accent-color);
+            border-color: #6366f1;
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <h1>Sobre o Projeto</h1>
+        
+        <p class="intro-text">
+            Este projeto foi criado de forma totalmente independente por <strong>Mateus</strong>, com foco na excelência técnica e didática.
+        </p>
+
+        <section class="goals-grid">
+            <div class="goal-card">
+                <span>Prática Ativa</span>
+                Aprimoramento em HTML, CSS e JavaScript moderno.
+            </div>
+            <div class="goal-card">
+                <span>Padronização</span>
+                Modelo base otimizado para acelerar novos fluxos de trabalho.
+            </div>
+            <div class="goal-card">
+                <span>Educação</span>
+                Ferramenta didática para otimização de tempo em sala de aula.
+            </div>
+        </section>
+
+        <div class="content-section">
+            <p>Este site foi idealizado como parte do processo de estudo em Desenvolvimento Web por um professor da área de Informática. O foco central reside no aperfeiçoamento de design responsivo e UX.</p>
+            
+            <p>Embora focado no aprendizado, o projeto cumpre uma função prática essencial: centralizar atividades e desafios para alunos, tornando-se uma extensão do trabalho docente.</p>
+            
+            <p>O layout prioriza a <strong>clareza e funcionalidade</strong>. Por ser um projeto experimental independente, ele mantém uma identidade visual própria, desvinculada de instituições específicas.</p>
+        </div>
+
+        <h2 class="versions-title">Outras Versões</h2>
+        <nav>
+            <ul class="version-list">
+                <li><a href="#" class="version-link">Versão 1</a></li>
+                <li><a href="#" class="version-link">Versão 2</a></li>
+                <li><a href="#" class="version-link">Versão 3</a></li>
+                <li><a href="#" class="version-link">Versão 4</a></li>
+                <li><a href="#" class="version-link">Versão 5</a></li>
+            </ul>
+        </nav>
+    </main>
+
+</body>
+</html>
