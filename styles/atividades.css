@@ -40,6 +40,11 @@
 .container .filter form .box-option  label {
     cursor: pointer;
 }
+.container .filter form .box-option  label .count {
+    padding-left: .2rem;
+    color: #a4a4a4;
+    font-family: monospace;
+}
 .container .filter form .box-option  input {
     display: none;
     cursor: pointer;

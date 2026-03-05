@@ -10,6 +10,7 @@ init();
 
 async function init() {
     dados = await carregarAtividades();
+    atualizarContadores(); // Nova função chamada após carregar os dados
     listarAtividades();
 }
 
@@ -31,11 +32,10 @@ async function carregarAtividades() {
             throw new Error(`Erro Supabase: ${error.message}`);
         }
 
-        // Gera URL pública a partir do file_path
         return data.map(doc => {
             const { data: publicData } = supabase.storage
                 .from('pdfs')
-                .getPublicUrl(doc.file_path);   // monta https://.../storage/v1/object/public/pdfs/... [web:11][web:12]
+                .getPublicUrl(doc.file_path);
 
             return {
                 titulo: doc.title,
@@ -48,6 +48,21 @@ async function carregarAtividades() {
         console.error('Erro ao carregar atividades:', erro);
         return [];
     }
+}
+
+// --- NOVIDADE: Função para atualizar os números (0) no HTML ---
+function atualizarContadores() {
+    radiosModulo.forEach(radio => {
+        const moduloValor = radio.value;
+        // Filtra os dados para contar quantos pertencem a este módulo
+        const quantidade = dados.filter(atv => atv.modulo === moduloValor).length;
+        
+        // Encontra o span .count que está dentro da mesma box-option
+        const label = radio.parentElement.querySelector('.count');
+        if (label) {
+            label.textContent = `(${quantidade})`;
+        }
+    });
 }
 
 // Listar atividades filtradas pelo módulo
@@ -64,7 +79,6 @@ function listarAtividades() {
         divItem.className = 'item';
         divItem.setAttribute('data-modulo', atividade.modulo);
 
-        // Abre PDF direto no navegador
         divItem.innerHTML = `
             <a href="${atividade.url}" target="_blank">
                 <span>${atividade.titulo}</span>
