@@ -13,8 +13,8 @@
 
     <!-- Script -->
     <script src="/lib/alert/my-alert.js" defer></script>
-    <script src="/scripts/sidebar.js" defer></script>
-    <script type="module" src="/scripts/main.js" defer></script>
+    <script src="/scripts/sidebar-component.js" defer></script>
+    <script src="/scripts/filter-component.js" defer></script>
 
 
     <!-- RemixIcon -->
@@ -26,103 +26,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <aside>
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <a href="/">
-                    <img src="/assets/logotipo.svg" alt="Logo do Site">
-                    
-                </a>
-                <button id="sidebar-toggle">
-                    <i class="ri-layout-left-2-line"></i>
-                </button>
-            </div>
-            <div class="sidebar-body">
-                <div class="nav-group">
-                    <h3>Início</h3>
-                    <a class="active" href="#">Atividades</a>
-                </div>
-                <div class="nav-group">
-                    <h3>Seções</h3>
-                    <a href="/pages/noob-mouse.html">1ª Aula</a>
-                    <a href="/pages/auxiliares.html">Auxiliares</a>
-                    <a href="#">Digitação</a>
-                </div>
-                <div class="nav-group">
-                    <h3>Outros</h3>
-                    <a href="https://eadon.com.br/sign-in" target="_blank">Escola Tsi - EAD</a>
-                    <a href="https://laava.simpleacademy.tech/login" target="_blank">Plataforma EJA</a>
-                </div>
-            </div>
-            <div class="sidebar-footer">
-                <button onclick="location = '/pages/sobre.html'">
-                    <span>Sobre o Projeto</span>
-                </button>
-            </div>
-        </div>
-    </aside>
+    <main-sidebar></main-sidebar>
     <main>
         <div class="container">
-            <div class="filter">
-                <form id="form-filtro">
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="introducao-informatica" id="introducao-informatica">
-                        <label for="introducao-informatica" class="label-option">Introdução a Informática <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="windows10" id="windows10">
-                        <label for="windows10" class="label-option">Windows 10 <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="windows11" id="windows11" checked>
-                        <label for="windows11" class="label-option">Windows 11 <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="internet" id="internet">
-                        <label for="internet" class="label-option">Internet <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="ambientes-digitais" id="ambientes-digitais">
-                        <label for="ambientes-digitais" class="label-option">Ambientes Digitais <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="word" id="word">
-                        <label for="word" class="label-option">Word <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="excel-fast" id="excel-fast">
-                        <label for="excel-fast" class="label-option">Excel Fast <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="excel-essencial" id="excel-essencial">
-                        <label for="excel-essencial" class="label-option">Excel Essencial <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="excel-avancado" id="excel-avancado">
-                        <label for="excel-avancado" class="label-option">Excel Avançado <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="vitrinismo" id="vitrinismo">
-                        <label for="vitrinismo" class="label-option">Vitrinismo <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="powerpoint" id="powerpoint">
-                        <label for="powerpoint" class="label-option">PowerPoint <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="power-bi" id="power-bi">
-                        <label for="power-bi" class="label-option">Power BI <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="photoshop" id="photoshop">
-                        <label for="photoshop" class="label-option">Photoshop <span class="count">(0)</span></label>
-                    </div>
-                    <div class="box-option">
-                        <input type="radio" name="modulo" value="coreldraw" id="coreldraw">
-                        <label for="coreldraw" class="label-option">CorelDraw <span class="count">(0)</span></label>
-                    </div>
-                </form>
-            </div>
+            <module-filter></module-filter>
             <div class="content">
                 <div class="list"></div>
             </div>
