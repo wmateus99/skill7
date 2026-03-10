@@ -59,7 +59,7 @@ class MySidebar extends HTMLElement {
                     </div>
                     <div class="nav-group">
                         <h3>Outros</h3>
-                        <a href="192.168.22.122:8080/index.php?pag=login" target="_blank">Escola Tsi - LOCAL</a>
+                        <a href="http://192.168.22.122:8080/" target="_blank">Escola Tsi - LOCAL</a>
                         <a href="https://eadon.com.br/sign-in" target="_blank">Escola Tsi - EAD</a>
                         <a href="https://laava.simpleacademy.tech/login" target="_blank">Plataforma EJA</a>
                     </div>
