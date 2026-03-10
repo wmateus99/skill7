@@ -1,34 +1,9 @@
-// const btnToggle = document.getElementById('sidebar-toggle')
-// const sidebar = document.querySelector('.sidebar')
-
-// let isOpen = true
-
-// function toggle() {
-//     console.log(isOpen)
-//     sidebar.classList.toggle('sidebar-toggle')
-//     isOpen = !isOpen
-// }
-
-// function checkMobile() {
-//     const mql = window.matchMedia('(max-width: 750px)');
-    
-//     const handler = (e) => {
-//         if (e.matches && isOpen) {
-//             toggle();
-//         }
-//     };
-    
-//     mql.addEventListener('change', handler);
-    
-//     if (mql.matches && isOpen) {
-//         toggle();
-//     }
-// }
-
-// checkMobile()
-
-// btnToggle.addEventListener('click', toggle)
 class MySidebar extends HTMLElement {
+
+    icons = {
+        link: '<i class="ri-link-m"></i>'
+    }
+
     constructor() {
         super();
     }
@@ -57,22 +32,18 @@ class MySidebar extends HTMLElement {
                         <a class="nav-link" href="/pages/auxiliares.html">Auxiliares</a>
                         <a class="nav-link" href="#">Digitação</a>
                     </div>
-                    <div class="nav-group">
+                    <div class="nav-group links">
                         <h3>Outros</h3>
-                        <a href="http://192.168.22.122:8080/" target="_blank">Escola Tsi - LOCAL</a>
-                        <a href="https://eadon.com.br/sign-in" target="_blank">Escola Tsi - EAD</a>
-                        <a href="https://laava.simpleacademy.tech/login" target="_blank">Plataforma EJA</a>
+                        <a href="http://192.168.22.122:8080/" target="_blank">${this.icons.link} Escola Tsi - LOCAL</a>
+                        <a href="https://eadon.com.br/sign-in" target="_blank">${this.icons.link} Escola Tsi - EAD</a>
+                        <a href="https://laava.simpleacademy.tech/login" target="_blank">${this.icons.link} Plataforma EJA</a>
+                        <a href="https://agilefingers.com/pt" target="_blank">${this.icons.link} Agile Fingers</a>
+                        <a href="/pages/sobre.html" target="_blank">${this.icons.link} Sobre o Projeto</a>
                     </div>
-                </div>
-                <div class="sidebar-footer">
-                    <button onclick="window.location.href = '/pages/sobre.html'">
-                        <span>Sobre o Projeto</span>
-                    </button>
                 </div>
             </div>
         </aside>
         `;
-
         this.initSidebar();
     }
 
