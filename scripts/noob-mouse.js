@@ -236,7 +236,7 @@ function startS4() {
         move(b);
         moveLoop = setInterval(() => move(b), 2000);
 
-        if (score >= 2) {
+        if (score >= 25) {
             stopAll();
             // alert('Treinamento Finalizado!\nExcelente desempenho.');
             notie.confirm({
