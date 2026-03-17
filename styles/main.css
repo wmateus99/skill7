@@ -38,13 +38,70 @@ main::-webkit-scrollbar {
     display: none;
 }
 
+/*/////////////////////////////////*/
+
+/* Content Header */
 .container {
+    gap: 1rem;
     width: 100%;
+    display: grid;
     border-radius: 8px;
-    /* background: var(--color-21); */
-    /* border: 1px solid var(--color-45); */
+    grid-template-columns: 1fr;
+    grid-template-rows: .1fr 1fr;
 }
 
+.container .content-header, .container .content-body {
+    display: flex;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--color-21);
+    border: 1px solid var(--color-45);
+}
+
+.container .content-header form {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container .content-header form .label-option {
+    outline: none;
+    display: flex;
+    cursor: pointer;
+    font-size: .8rem;
+    appearance: none;
+    color: #dddddd;
+    user-select: none;
+    border-radius: 4px;
+    align-items: center;
+    padding: .6rem .8rem;
+    transition: .3s ease;
+    justify-content: center;
+    background: var(--color-26);
+    border: 1px solid var(--color-45);
+}
+.container .content-header form .box-option  label {
+    cursor: pointer;
+}
+.container .content-header form .box-option  label .count {
+    padding-left: .2rem;
+    color: #a4a4a4;
+    font-family: monospace;
+}
+.container .content-header form .box-option  input {
+    display: none;
+    cursor: pointer;
+}
+
+.container .content-header form .box-option  input:checked + label {
+    background: var(--color-main);
+    border-color: var(--color-ff);
+}
+
+/*/////////////////////////////////*/
+
+/* Lista */
 .list {
     gap: 1rem;
     width: 100%;
@@ -91,26 +148,9 @@ main::-webkit-scrollbar {
     }
 }
 
+/*/////////////////////////////////*/
 
-
-
-/* Blocos Padrões */
-.block-21, .block-26 {
-    border-radius: 4px;
-    border: 1px solid var(--color-55);
-}
-.block-21 {
-    background: var(--color-21);
-}
-.block-26 {
-    transition: .3s ease;
-    background: var(--color-26);
-}
-
-.block-26:hover {
-    background: #292929;
-}
-
+/* Reset */
 a {
     font-style: none;
     text-decoration: none;
@@ -120,4 +160,5 @@ a {
 iframe {
     cursor: none;
 }
-/*  */
+
+/*/////////////////////////////////*/

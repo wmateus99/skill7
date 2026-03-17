@@ -84,7 +84,7 @@ function startS1() {
 
     document.getElementById('score').innerText = '0';
     document.getElementById('time').innerText = timer + 's';
-    b.innerText = ''; // se quiser mostrar algo, use score
+    b.innerText = 0; // se quiser mostrar algo, use score
 
     move(b);
 
@@ -94,7 +94,8 @@ function startS1() {
 
         if (timer <= 0) {
             stopAll();
-            myAlert.alert('Tempo Esgotado\nTente novamente.');
+            // alert('Tempo Esgotado\nTente novamente.');
+            notie.alert({ type: 4, text: 'Tempo Esgotado! Tente novamente.', time: 3 })
             manualJump(1);
         }
     }, 1000);
@@ -107,6 +108,7 @@ function startS1() {
 
         if (score >= 25) {
             stopAll();
+            notie.alert({ type: 1, text: 'Próxima Etapa!', time: 3 })
             manualJump(2);
         }
     };
@@ -167,6 +169,7 @@ function startS2() {
 
                 if (score >= 10) {
                     stopAll();
+                    notie.alert({ type: 1, text: 'Próxima Etapa!', time: 3 })
                     manualJump(3);
                 }
             }
@@ -188,7 +191,7 @@ function startS3() {
 
     score = 0;
     document.getElementById('score').innerText = '0';
-    b.innerText = '';
+    b.innerText = 0;
 
     move(b);
 
@@ -200,6 +203,7 @@ function startS3() {
 
         if (score >= 25) {
             stopAll();
+            notie.alert({ type: 1, text: 'Próxima Etapa!', time: 3 })
             manualJump(4);
         }
     };
@@ -217,7 +221,7 @@ function startS4() {
 
     score = 0;
     document.getElementById('score').innerText = '0';
-    b.innerText = '';
+    b.innerText = 0;
 
     move(b);
 
@@ -232,10 +236,31 @@ function startS4() {
         move(b);
         moveLoop = setInterval(() => move(b), 2000);
 
-        if (score >= 25) {
+        if (score >= 2) {
             stopAll();
-            alert('Treinamento Finalizado!\nExcelente desempenho.');
+            // alert('Treinamento Finalizado!\nExcelente desempenho.');
+            notie.confirm({
+                text: "Parabéns, você concluiu todas as etapas, deseja ir para o próximo desafio?",
+                cancelCallback: function () {
+                    manualJump(1);
+                },
+                submitCallback: function () {
+                    notie.alert({ type: 4, text: 'Você está sendo redirecionado...', time: 1 })
+                    redirecionarDigitacao('/')
+                }
+            });
             manualJump(1);
         }
     };
+}
+
+function redirecionarDigitacao(url) {
+    setTimeout(function() {
+        window.location.href = url;
+    }, 1000);
+}
+function redirecionarMouse(url) {
+    setTimeout(function() {
+        window.location.href = url;
+    }, 1000);
 }

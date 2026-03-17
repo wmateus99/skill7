@@ -39,7 +39,7 @@ class ModuleFilter extends HTMLElement {
         `).join('');
 
         this.innerHTML = `
-            <div class="filter">
+            <div class="content-header">
                 <form id="form-filtro">
                     ${optionsHTML}
                 </form>

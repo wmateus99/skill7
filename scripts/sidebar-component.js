@@ -23,11 +23,8 @@ class MySidebar extends HTMLElement {
                 </div>
                 <div class="sidebar-body">
                     <div class="nav-group">
-                        <h3>Início</h3>
-                        <a class="nav-link" href="/index.html">Atividades</a>
-                    </div>
-                    <div class="nav-group">
                         <h3>Seções</h3>
+                        <a class="nav-link" href="/index.html">Atividades</a>
                         <a class="nav-link" href="/pages/noob-mouse.html">1ª Aula</a>
                         <a class="nav-link" href="/pages/auxiliares.html">Auxiliares</a>
                         <a class="nav-link" href="#">Digitação</a>

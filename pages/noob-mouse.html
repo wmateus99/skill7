@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill7 | Portal de Habilidades</title>
-    <link rel="shortcut icon" href="/frontend/assets/logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/logo.svg" type="image/x-icon">
 
     <!-- Style -->
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/pri-aula.css">
+    <link rel="stylesheet" href="/styles/sty-sidebar.css">
+    <link rel="stylesheet" href="/styles/sty-noob-page.css">
+    <link rel="stylesheet" href="/lib/notie/notie.min.css">
 
     <!-- Script -->
-    <script src="/lib/alert/my-alert.js" defer></script>
-    <script src="/scripts/pri-aula.js" defer></script>
+    <script src="/scripts/sidebar-component.js" defer></script>
+    <script src="/scripts/noob-mouse.js" defer></script>
 
 
     <!-- RemixIcon -->
@@ -24,48 +26,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <main-sidebar></main-sidebar>
+    <main>
+        <div class="container">
+            <div class="content-header noob-mouse">
+                <nav class="level-nav">
+                    <button class="nav-btn active-nav" onclick="manualJump(1)">1ª Etapa</button>
+                    <button class="nav-btn" onclick="manualJump(2)">2ª Etapa</button>
+                    <button class="nav-btn" onclick="manualJump(3)">3ª Etapa</button>
+                    <button class="nav-btn" onclick="manualJump(4)">4ª Etapa</button>
+                    <button class="nav-btn" onclick="location = 'https://pratica-mente.netlify.app/src/pages/primeira-aula/digitacao'">Digitação <i class="ri-external-link-line"></i></button>
+                </nav>
+            </div>
+            <div class="content-body noob-mouse">
+                <div id="game-container">
+                    <header>
+                        <span id="level-name" style="font-weight:700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Nível 1 - Clique na bola o mais rápido possível..</span>
+                        <div style="display: flex; gap: 8px;">
+                            <div class="stats-badge">Score: <span id="score">0</span>/25</div>
+                            <div class="stats-badge">Tempo: <span id="time">--</span></div>
+                        </div>
+                    </header>
 
-<nav class="level-nav">
-    <button class="nav-btn active-nav" onclick="manualJump(1)">1. Precisão</button>
-    <button class="nav-btn" onclick="manualJump(2)">2. Controle</button>
-    <button class="nav-btn" onclick="manualJump(3)">3. Agilidade</button>
-    <button class="nav-btn" onclick="manualJump(4)">4. Reflexo</button>
-    <button class="nav-btn" onclick="location = 'https://pratica-mente.netlify.app/src/pages/primeira-aula/digitacao'">Digitação<i class="ri-external-link-line"></i></button>
-</nav>
+                    <div id="play-area">
+                        <div id="s1" class="section active">
+                            <button class="btn-start" onclick="startS1()">INICIAR ETAPA</button>
+                            <div id="ball1" class="target-ball" style="display:none;">1</div>
+                        </div>
 
-<div id="game-container">
-    <header>
-        <span id="level-name" style="font-weight:700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Nível 1 - Clique na bola o mais rápido possível..</span>
-        <div style="display: flex; gap: 8px;">
-            <div class="stats-badge">Score: <span id="score">0</span>/25</div>
-            <div class="stats-badge">Tempo: <span id="time">--</span></div>
-        </div>
-    </header>
+                        <div id="s2" class="section">
+                            <button class="btn-start" onclick="startS2()">INICIAR ETAPA</button>
+                            <div id="drag-zone" style="display:none;" class="drag-area">
+                                <div id="src" class="source"></div>
+                                <div id="tgt" class="target"></div>
+                            </div>
+                        </div>
 
-    <div id="play-area">
-        <div id="s1" class="section active">
-            <button class="btn-start" onclick="startS1()">INICIAR ETAPA</button>
-            <div id="ball1" class="target-ball" style="display:none;">1</div>
-        </div>
+                        <div id="s3" class="section">
+                            <button class="btn-start" onclick="startS3()">INICIAR ETAPA</button>
+                            <div id="ball3" class="target-ball" style="display:none;">1</div>
+                        </div>
 
-        <div id="s2" class="section">
-            <button class="btn-start" onclick="startS2()">INICIAR ETAPA</button>
-            <div id="drag-zone" style="display:none;" class="drag-area">
-                <div id="src" class="source"></div>
-                <div id="tgt" class="target"></div>
+                        <div id="s4" class="section">
+                            <button class="btn-start" onclick="startS4()">INICIAR ETAPA</button>
+                            <div id="ball4" class="target-ball no-smooth" style="display:none;">1</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div id="s3" class="section">
-            <button class="btn-start" onclick="startS3()">INICIAR ETAPA</button>
-            <div id="ball3" class="target-ball" style="display:none; background: #475569;">1</div>
-        </div>
-
-        <div id="s4" class="section">
-            <button class="btn-start" onclick="startS4()">INICIAR ETAPA</button>
-            <div id="ball4" class="target-ball no-smooth" style="display:none; background: #0f172a;">1</div>
-        </div>
-    </div>
-</div>
+    </main>
+    <script src="/lib/notie/notie.min.js"></script>
 </body>
 </html>
