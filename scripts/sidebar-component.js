@@ -27,7 +27,7 @@ class MySidebar extends HTMLElement {
                         <a class="nav-link" href="/index.html">Atividades</a>
                         <a class="nav-link" href="/pages/noob-mouse.html">1ª Aula</a>
                         <a class="nav-link" href="/pages/auxiliares.html">Auxiliares</a>
-                        <a class="nav-link" href="#">Digitação</a>
+                        <a class="nav-link" href="#" style="cursor: not-allowed;">Digitação</a>
                     </div>
                     <div class="nav-group links">
                         <h3>Outros</h3>

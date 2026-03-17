@@ -1,0 +1,29 @@
+.container .content-body #game-container #play-area .section .game-box {
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    max-width: 450px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container .content-body #game-container #play-area .section .game-box .input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding-left: 1rem;
+    border-radius: 4px;
+}
+.container .content-body #game-container #play-area .section .game-box .texto {
+    width: 100%;
+    height: 70px;
+    /* font-weight: bold; */
+    font-size: 1.6rem;
+    text-align: center;
+}

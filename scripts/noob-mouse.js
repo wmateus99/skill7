@@ -246,7 +246,7 @@ function startS4() {
                 },
                 submitCallback: function () {
                     notie.alert({ type: 4, text: 'Você está sendo redirecionado...', time: 1 })
-                    redirecionarDigitacao('https://pratica-mente.netlify.app/src/pages/primeira-aula/digitacao')
+                    redirecionarDigitacao('/pages/noob-digitacao.html')
                 }
             });
             manualJump(1);
