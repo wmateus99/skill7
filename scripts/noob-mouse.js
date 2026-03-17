@@ -236,11 +236,11 @@ function startS4() {
         move(b);
         moveLoop = setInterval(() => move(b), 2000);
 
-        if (score >= 25) {
+        if (score >= 2) {
             stopAll();
             // alert('Treinamento Finalizado!\nExcelente desempenho.');
             notie.confirm({
-                text: "Parabéns, você concluiu todas as etapas, deseja ir para o próximo desafio?",
+                text: "Parabéns! Você completou todas as etapas. Quer partir para o próximo desafio?",
                 cancelCallback: function () {
                     manualJump(1);
                 },
