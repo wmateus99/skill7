@@ -236,7 +236,7 @@ function startS4() {
         move(b);
         moveLoop = setInterval(() => move(b), 2000);
 
-        if (score >= 2) {
+        if (score >= 25) {
             stopAll();
             // alert('Treinamento Finalizado!\nExcelente desempenho.');
             notie.confirm({
@@ -246,7 +246,7 @@ function startS4() {
                 },
                 submitCallback: function () {
                     notie.alert({ type: 4, text: 'Você está sendo redirecionado...', time: 1 })
-                    redirecionarDigitacao('/')
+                    redirecionarDigitacao('https://pratica-mente.netlify.app/src/pages/primeira-aula/digitacao')
                 }
             });
             manualJump(1);
