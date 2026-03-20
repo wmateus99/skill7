@@ -11,32 +11,32 @@ const levelName = document.getElementById("level-name");
 // Frases
 const etapas = {
     1: [
-        "asdf jklç asdf jklç asdf jklç",
-        "qwer uiop qwer uiop qwer uiop",
-        "çlkj fdsa çlkj fdsa çlkj fdsa",
-        "praticar melhora muito",
-        "escola tsi informatica"
+        "treino basico sem acento",
+        "digitar rapido melhora",
+        "pratica diaria ajuda muito",
+        "teclado exige memoria",
+        "foco ritmo e repeticao"
     ],
     2: [
-        "Olá, Mundo!", 
-        "O café está quente", 
-        "Não há água na geladeira", 
-        "Você está aprendendo rápido", 
-        "á é í ó ú"
+        "O café está ótimo",
+        "Você já terminou o exercício?",
+        "A água está fria",
+        "Ele saiu às pressas",
+        "Á, é, í, ó, ú"
     ],
     3: [
-        "Você está com o chapéu", 
-        "Eles têm muitos amigos", 
-        "Você pôde abrir a janela agora?", 
-        "O pássaro voa sobre o rio.", 
-        "Minha mãe sempre faz o jantar"
+        "Ele tem três irmãos",
+        "Eles têm boas ideias",
+        "Você pôde resolver ontem?",
+        "O avô fez um ótimo café",
+        "A lâmpada está acesa"
     ],
     4: [
-        "Alt Gr + 3 = ³", 
-        "@ # $ % & * ( )", 
-        "2²² aªª 1¹¹",
+        "Alt Gr + 3 = ³",
+        "@ # $ % & * ( )",
+        "2² 3³ 1¹",
         "[8 + 9] / (25 - 2)",
-        "email@exemplo.com.br" 
+        "contato@dominio.com"
     ]
 };
 
