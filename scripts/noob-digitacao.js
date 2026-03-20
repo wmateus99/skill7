@@ -28,8 +28,8 @@ const etapas = {
         "Você está com o chapéu", 
         "Eles têm muitos amigos", 
         "Você pôde abrir a janela agora?", 
-        "O pássaro vôa sobre o rio.", 
-        "Minha mâe sempre faz o jantar"
+        "O pássaro voa sobre o rio.", 
+        "Minha mãe sempre faz o jantar"
     ],
     4: [
         "Alt Gr + 3 = ³", 
