@@ -14,7 +14,7 @@ const etapas = {
         "treino basico sem acento",
         "digitar rapido melhora",
         "pratica diaria ajuda muito",
-        "teclado exige memoria",
+        "anotar melhora memoria",
         "foco ritmo e repeticao"
     ],
     2: [
@@ -25,11 +25,11 @@ const etapas = {
         "Á, é, í, ó, ú"
     ],
     3: [
-        "Ele tem três irmãos",
-        "Eles têm boas ideias",
-        "Você pôde resolver ontem?",
-        "O avô fez um ótimo café",
-        "A lâmpada está acesa"
+        "Você tem o caderno correto?",
+        "Eles têm ótimas anotações",
+        "Você pôde revisar o conteúdo?",
+        "O avô lê com atenção e paciência",
+        "A lâmpada acesa ajuda na precisão"
     ],
     4: [
         "Alt Gr + 3 = ³",
