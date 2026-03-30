@@ -7,9 +7,9 @@
     overflow-y: auto;
     transition: .1s ease-in-out;
     grid-template-columns: 1fr;
-    background: var(--color-21);
+    background: var(--color-surface);
     grid-template-rows: .1fr 1fr;
-    border-right: 1px solid var(--color-45);
+    border-right: 1px solid var(--color-border);
 }
 .sidebar::-webkit-scrollbar {
     width: 4px;
@@ -20,12 +20,12 @@
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background: var(--color-45);
+    background: var(--color-border);
     border-radius: 4px;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-    background: var(--color-55);           /* Hover */
+    background: var(--color-border); 
 }
 
 /* Sidebar Header */
@@ -57,8 +57,8 @@
 
 /* Sidebar Body */
 .sidebar-body {
-    border-top: 1px solid var(--color-45);
-    border-bottom: 1px solid var(--color-45);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 }
 .sidebar-body .nav-group {
     gap: .5rem;
@@ -72,48 +72,29 @@
 .sidebar-body .nav-group a {
     font-size: .98rem;
     border-radius: 8px;
-    border: 1px solid var(--color-45);
+    border: 1px solid var(--color-border);
     transition: .2s ease-in-out;
     /* background: var(--color-45); */
     padding: .5rem .5rem .5rem 1.2rem;
 }
 .sidebar-body .nav-group.links a {
-    color: #d0d0d0;
     font-size: .98rem;
     border-radius: 8px;
+    color: var(--color-text-secondary);
     transition: .2s ease-in-out;
-    border: 1px solid var(--color-45);
     padding: .5rem .5rem .5rem 1.2rem;
+    border: 1px solid var(--color-border);
 }
 .sidebar-body .nav-group a:hover {
     background: var(--color-45);
     padding: .5rem .5rem .5rem 1.4rem;
 }
 .sidebar-body .nav-group a.active {
-    background: var(--color-main);
-    border-color: var(--color-ff);
+    color: var(--color-surface);
+    background: var(--color-primary);
+    border-color: var(--color-border);
     padding: .5rem .5rem .5rem 1.4rem;
 }
-
-/* Para outras verções com botões */
-.sidebar-body .nav-group button {
-    font-size: .98rem;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: center;
-    transition: .2s ease-in-out;
-    background: var(--color-26);
-    border: 1px solid var(--color-45);
-    padding: .5rem .5rem .5rem .5rem;
-}
-.sidebar-body .nav-group button:hover {
-    background: var(--color-45);
-    padding: .5rem .5rem .5rem 1.4rem;
-}
-.sidebar-body .nav-group button.active {
-    background: var(--color-45);
-}
-/*  */
 
 .sidebar-footer {
     display: flex;
@@ -127,7 +108,7 @@
     cursor: pointer;
     border-radius: 4px;
     background: var(--color-main);
-    border: 1px solid var(--color-ff);
+    border: 1px solid var(--color-border);
 }
 
 /* Active */
