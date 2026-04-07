@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill7 | Portal de Habilidades</title>
+    <link rel="shortcut icon" href="/assets/logo.svg" type="image/x-icon">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/sty-sidebar.css">
+    <link rel="stylesheet" href="/styles/atividades.css">
+
+    <!-- Script -->
+    <script src="/lib/alert/my-alert.js" defer></script>
+    <script src="/scripts/sidebar-component.js" defer></script>
+
+
+    <!-- RemixIcon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Crie um estilo para a tabela */
+        .content  {
+            margin-top: 20px;
+            background: var(--color-surface);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            color: white;
+            background: var(--color-primary);
+        }
+    </style>
+</head>
+<body>
+    <main-sidebar></main-sidebar>
+    <main>
+        <div class="container">
+            <div class="content-header" style="justify-content: center; align-items: center; font-size: .8rem;">
+                <h1>Dados de Contas</h1>
+            </div>
+            <div class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Conta</th>
+                            <th>Email / Usuário</th>
+                            <th>Senha</th>
+                            <th>Página</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contas-table-body">
+                        <tr>
+                            <td>AgileFingers</td>
+                            <td>wandersonmateus2022k@gmail.com</td>
+                            <td>0031982004</td>
+                            <td>
+                                <a href="https://agilefingers.com/pt/entrar" target="_blank" style="color: var(--color-primary); font-weight: 500;">Ver Página</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+<script type="module" src="/scripts/contasListLoader.js"></script>
+</body>
+</html>
