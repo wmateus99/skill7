@@ -40,8 +40,17 @@ class MySidebar extends HTMLElement {
                 </div>
             </div>
         </aside>
+        <nav id="custom-menu" class="context-menu">
+            <ul>
+                <li><a href="/pages/upload.html">Upload</a></li>
+                <li><a href="/pages/contas.html">Contas</a></li>
+                <li class="separator"></li>
+                <li><a href="javascript:void(0)" onclick="location.reload()">Recarregar Página</a></li>
+            </ul>
+        </nav>
         `;
         this.initSidebar();
+        this.hiddenMenu();
     }
 
     initSidebar() {
@@ -99,6 +108,29 @@ class MySidebar extends HTMLElement {
             links[0].classList.add('active');
         }
     }
+
+    hiddenMenu() {
+        const area = document.getElementById('hidden-menu');
+        const menu = document.getElementById('custom-menu');
+
+        // Abre o menu na posição do mouse
+        area.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            menu.style.display = 'block';
+            menu.style.left = `${e.pageX}px`;
+            menu.style.top = `${e.pageY}px`;
+        });
+
+        // Fecha o menu ao clicar fora (ou em um link)
+        document.addEventListener('click', () => {
+            menu.style.display = 'none';
+        });
+        
+        // Fecha o menu com a tecla Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') menu.style.display = 'none';
+        });
+    };
 }
 
 // Define o elemento customizado
