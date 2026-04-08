@@ -13,7 +13,7 @@ class MySidebar extends HTMLElement {
         this.innerHTML = `
         <aside>
             <div class="sidebar">
-                <div class="sidebar-header">
+                <div class="sidebar-header" id="hidden-menu">
                     <a href="/">
                         <img src="/assets/logotipo.svg" alt="Logo do Site">
                     </a>

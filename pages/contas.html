@@ -9,7 +9,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/sty-sidebar.css">
-    <link rel="stylesheet" href="/styles/atividades.css">
+    <!-- <link rel="stylesheet" href="/styles/atividades.css"> -->
 
     <!-- Script -->
     <script src="/lib/alert/my-alert.js" defer></script>
@@ -26,9 +26,10 @@
 
     <style>
         /* Crie um estilo para a tabela */
-        .content  {
+        .table-container  {
+            width: 100%;
             margin-top: 20px;
-            background: var(--color-surface);
+            overflow-x: auto;
         }
         table {
             width: 100%;
@@ -54,30 +55,11 @@
             <div class="content-header" style="justify-content: center; align-items: center; font-size: .8rem;">
                 <h1>Dados de Contas</h1>
             </div>
-            <div class="content">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Conta</th>
-                            <th>Email / Usuário</th>
-                            <th>Senha</th>
-                            <th>Página</th>
-                        </tr>
-                    </thead>
-                    <tbody id="contas-table-body">
-                        <tr>
-                            <td>AgileFingers</td>
-                            <td>wandersonmateus2022k@gmail.com</td>
-                            <td>0031982004</td>
-                            <td>
-                                <a href="https://agilefingers.com/pt/entrar" target="_blank" style="color: var(--color-primary); font-weight: 500;">Ver Página</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="content-body">
+                <div class="table-container"></div>
             </div>
         </div>
     </main>
-<script type="module" src="/scripts/contasListLoader.js"></script>
+<script src="/scripts/contasListLoader.js"></script>
 </body>
 </html>

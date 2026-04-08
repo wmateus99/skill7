@@ -9,7 +9,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="/styles/sty-sidebar.css">
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/atividades.css">
+    <link rel="stylesheet" href="styles/sty-hidden-menu.css">
 
     <!-- Script -->
     <script src="/lib/alert/my-alert.js" defer></script>
@@ -35,6 +35,15 @@
             </div>
         </div>
     </main>
+    <nav id="custom-menu" class="context-menu">
+        <ul>
+            <li><a href="/pages/upload.html">Upload</a></li>
+            <li><a href="/pages/contas.html">Contas</a></li>
+            <li class="separator"></li>
+            <li><a href="javascript:void(0)" onclick="location.reload()">Recarregar Página</a></li>
+        </ul>
+    </nav>
 <script type="module" src="/scripts/activitiesListLoader.js"></script>
+<script type="module" src="/scripts/hidden-menu.js"></script>
 </body>
 </html>

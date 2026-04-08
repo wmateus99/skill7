@@ -1,0 +1,40 @@
+.context-menu {
+    display: none;
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 200px;
+    padding: 5px 0;
+}
+
+.context-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* O link ocupa todo o espaço do item */
+.context-menu ul li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-family: sans-serif;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+/* Efeito de hover no link */
+.context-menu ul li a:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.separator {
+    height: 1px;
+    background: #eee;
+    margin: 5px 0;
+}
