@@ -74,17 +74,15 @@ function startS1() {
     const b = document.getElementById('ball1');
 
     b.style.display = 'flex';
-
-    // limpa handlers antigos
     b.onclick = null;
     b.ondblclick = null;
 
     score = 0;
-    timer = 60;
+    timer = 50;
 
     document.getElementById('score').innerText = '0';
     document.getElementById('time').innerText = timer + 's';
-    b.innerText = 0; // se quiser mostrar algo, use score
+    b.innerText = 0;
 
     move(b);
 
@@ -94,9 +92,14 @@ function startS1() {
 
         if (timer <= 0) {
             stopAll();
-            // alert('Tempo Esgotado\nTente novamente.');
-            notie.alert({ type: 4, text: 'Tempo Esgotado! Tente novamente.', time: 3 })
-            manualJump(1);
+            Swal.fire({
+                icon: 'error',
+                title: 'Tempo Esgotado!',
+                text: 'Tente novamente.',
+                confirmButtonText: 'Repetir'
+            }).then(() => {
+                manualJump(1);
+            });
         }
     }, 1000);
 
@@ -108,8 +111,21 @@ function startS1() {
 
         if (score >= 25) {
             stopAll();
-            notie.alert({ type: 1, text: 'Próxima Etapa!', time: 3 })
-            manualJump(2);
+            Swal.fire({
+                icon: 'success',
+                title: 'Nível Completo!',
+                text: 'Você completou a primeira etapa! Deseja avançar para a próxima?',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, avançar',
+                cancelButtonText: 'Não, repetir',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    manualJump(2);
+                } else {
+                    manualJump(1);
+                }
+            });
         }
     };
 }
@@ -169,8 +185,21 @@ function startS2() {
 
                 if (score >= 10) {
                     stopAll();
-                    notie.alert({ type: 1, text: 'Próxima Etapa!', time: 3 })
-                    manualJump(3);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Nível Completo!',
+                        text: 'Você completou a segunda etapa! Deseja avançar para a próxima?',
+                        showCancelButton: true,
+                        confirmButtonText: 'Sim, avançar',
+                        cancelButtonText: 'Não, repetir',
+                        reverseButtons: true
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            manualJump(3);
+                        } else {
+                            manualJump(2);
+                        }
+                    });
                 }
             }
         };
@@ -238,18 +267,21 @@ function startS4() {
 
         if (score >= 25) {
             stopAll();
-            // alert('Treinamento Finalizado!\nExcelente desempenho.');
-            notie.confirm({
-                text: "Parabéns! Você completou todas as etapas. Quer partir para o próximo desafio?",
-                cancelCallback: function () {
-                    manualJump(1);
-                },
-                submitCallback: function () {
-                    notie.alert({ type: 4, text: 'Você está sendo redirecionado...', time: 1 })
+            Swal.fire({
+                icon: 'success',
+                title: 'Treinamento Finalizado!',
+                text: 'Parabéns! Você completou todas as etapas. Quer partir para o próximo desafio?',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, avançar',
+                cancelButtonText: 'Não, repetir',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
                     redirecionarDigitacao('/pages/noob-digitacao.html')
+                } else {
+                    manualJump(4);
                 }
             });
-            manualJump(1);
         }
     };
 }
