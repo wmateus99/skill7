@@ -3,6 +3,7 @@ class ModuleFilter extends HTMLElement {
         super();
         // Centralize seus dados aqui: fácil de adicionar novos módulos
         this.modules = [
+            { id: 'digitacao', value: 'digitacao', label: 'Digitação' },
             { id: 'introducao-informatica', value: 'introducao-informatica', label: 'Introdução a Informática' },
             { id: 'windows10', value: 'windows10', label: 'Windows 10' },
             { id: 'windows11', value: 'windows11', label: 'Windows 11', checked: true },
