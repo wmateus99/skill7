@@ -72,15 +72,26 @@ function listarAtividades() {
     const fragment = document.createDocumentFragment();
     const moduloSelecionado = document.querySelector('input[name="modulo"]:checked')?.value || '';
 
+    // Função para transformar URL apenas para digitação
+    function getRelativePath(fullUrl) {
+        return fullUrl.split('/public/pdfs')[1] || fullUrl;
+    }
+
     const filtradas = dados.filter(atividade => atividade.modulo === moduloSelecionado);
 
     filtradas.forEach(atividade => {
         const divItem = document.createElement('div');
         divItem.className = 'item';
         divItem.setAttribute('data-modulo', atividade.modulo);
+        
+        // ✅ Só transforma URL se for módulo 'digitacao'
+        let urlFinal = atividade.url;
+        if (atividade.modulo === 'digitacao') {
+            urlFinal = getRelativePath(atividade.url);
+        }
 
         divItem.innerHTML = `
-            <a href="${atividade.url}" target="_blank">
+            <a href="${urlFinal}" target="_blank">
                 <span>${atividade.titulo}</span>
                 <i class="ri-link"></i>
             </a>
